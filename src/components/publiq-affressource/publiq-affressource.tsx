@@ -24,7 +24,7 @@ export class affressource {
 
     async vueplus1(){
         try{
-            let response = await fetch(`http://localhost:3000/public/statressource`, {
+            let response = await fetch(PATH.back+'/public/statressource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export class affressource {
 
     async signalerRessource(idRessource){
         try{
-            let response = await fetch(`http://localhost:3000/users/signalerUneRessource`, {
+            let response = await fetch(PATH.back+'/users/signalerUneRessource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export class affressource {
     async signalerCommentaires(commentaireid){
         console.log(commentaireid)
         try{
-            let response = await fetch(`http://localhost:3000/users/signalerUnCommentaire`, {
+            let response = await fetch(PATH.back+'/users/signalerUnCommentaire', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export class affressource {
 
     async favorisRessource(idRessource){
         try{
-            let response = await fetch(`http://localhost:3000/users/favorisRessource/`, {
+            let response = await fetch(PATH.back+'/users/favorisRessource/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ export class affressource {
 
     async suivreUtilisateur(idUser){
         try{
-            let response = await fetch(`http://localhost:3000/users/suivreUser`, {
+            let response = await fetch(PATH.back+'/users/suivreUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ export class affressource {
     async addComment(e){
         e.preventDefault()
         try{
-            let response = await fetch(`http://localhost:3000/users/commente`, {
+            let response = await fetch(PATH.back+'/users/commente', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ export class affressource {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/public/afficheRessource/` + this.match.params.id, {
+            let response = await fetch(PATH.back+'/public/afficheRessource/' + this.match.params.id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -202,7 +202,7 @@ export class affressource {
             return (
                 <div>
                     <div class="container pb-3">
-                        <hive-pdf-viewer class="mx-auto pdf-frame " src={"http://localhost:3000/file/"+this.afficherRessources.fileName}></hive-pdf-viewer>
+                        <hive-pdf-viewer class="mx-auto pdf-frame " src={PATH.back+'/file/'+this.afficherRessources.fileName}></hive-pdf-viewer>
                     </div>
 
                     <div class="container bottom-page-ressource pb-2">
@@ -220,7 +220,7 @@ export class affressource {
                                     <div class="d-flex justify-content-end">
                                         <div id='coeurVide' class="nostyle mx-2" onClick={()=>this.favorisRessource(this.afficherRessources._id)}><img class="icone" src="/bootstrap-files/heart.svg" width="35" height="35" ></img></div>
                                         <div id='coeurPlein' hidden class="nostyle mx-2"><img class="icone" src="/bootstrap-files/heart-fill.svg" width="35" height="35"></img></div>
-                                        <div class="nostyle mx-2" ><a href={'http://localhost:3000/file/'+this.afficherRessources.fileName} target="_blank"><img class="icone" src="/bootstrap-files/download.svg" width="35" height="35"></img></a></div>
+                                        <div class="nostyle mx-2" ><a href={PATH.back+'/file/'+this.afficherRessources.fileName} target="_blank"><img class="icone" src="/bootstrap-files/download.svg" width="35" height="35"></img></a></div>
                                         <div class="h3 signalerRess" onClick={()=>this.signalerRessource(this.afficherRessources._id)}><img class="icone ms-2 me-3" src="/bootstrap-files/exclamation-triangle.svg" width="35" height="35"></img></div>
                                     </div>
                                     <div class="d-flex justify-content-end mb-1">

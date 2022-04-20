@@ -2,6 +2,7 @@
 import { RouterHistory } from '@stencil/router';
 import { UserConnected } from '../../utils/UserConnected';
 import { Ressources } from '../../utils/Ressources';
+import {PATH} from '../../utils/path.js';
 
 @Component({
     tag:'user-favoris',
@@ -30,7 +31,7 @@ export class userFavoris {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/users/afficherFavorisRessource`, {
+            let response = await fetch(PATH.back+'/users/afficherFavorisRessource', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ export class userFavoris {
 
     async suivreUtilisateur(){
         try{
-            let response = await fetch(`http://localhost:3000/users/afficherSuivreUtilisateur`, {
+            let response = await fetch(PATH.back+'/users/afficherSuivreUtilisateur', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +72,7 @@ export class userFavoris {
     
     async supprimerFavorisRessource(idRessource){
         try{
-            let response = await fetch(`http://localhost:3000/users/supprimerFavorisRessource`, {
+            let response = await fetch(PATH.back+'/users/supprimerFavorisRessource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -93,7 +94,7 @@ export class userFavoris {
 
     async supprimerSuivreUtilisateur(idUser){
         try{
-            let response = await fetch(`http://localhost:3000/users/supprimerSuivieUser`, {
+            let response = await fetch(PATH.back+'/users/supprimerSuivieUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import { Component, h, State,Prop } from '@stencil/core';
 import { UserConnected } from '../../utils/UserConnected';
 import { RouterHistory } from '@stencil/router';
+import {PATH} from '../../utils/path.js';
 @Component({
     tag:'user-modifierprofil',
     shadow: false,
@@ -28,7 +29,7 @@ export class userModifierProfil {
     async modifProfile(e){
         e.preventDefault()
         try{
-            let response = await fetch(`http://localhost:3000/users/modifierMonProfil`, {
+            let response = await fetch(PATH.back+'/users/modifierMonProfil', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ export class userModifierProfil {
 
     async getprofil(){
         try{
-            let response = await fetch(`http://localhost:3000/users/monProfil`, {
+            let response = await fetch(PATH.back+'/users/monProfil', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

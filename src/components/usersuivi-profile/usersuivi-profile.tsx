@@ -2,6 +2,7 @@ import { Component, h, State,Prop } from '@stencil/core';
 import { UserConnected } from '../../utils/UserConnected';
 import { RouterHistory } from '@stencil/router';
 import { Ressources } from '../../utils/Ressources';
+import {PATH} from '../../utils/path.js';
 @Component({
     tag:'usersuivi-profile',
     shadow: false,
@@ -23,7 +24,7 @@ export class userFavorisProfil {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/users/profilUtilisateur/`+this.match.params.userid, {
+            let response = await fetch(PATH.back+'/users/profilUtilisateur/'+this.match.params.userid, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ export class userFavorisProfil {
 
     async getressource(){
         try{
-            let response = await fetch(`http://localhost:3000/public/afficheRessourceDeUtilisateur/`+this.match.params.userid, {
+            let response = await fetch(PATH.back+'/public/afficheRessourceDeUtilisateur/'+this.match.params.userid, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

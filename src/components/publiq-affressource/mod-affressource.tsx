@@ -1,6 +1,6 @@
 import { Component, h, State,Prop } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
-
+import {PATH} from '../../utils/path.js';
 import { Ressources } from '../../utils/Ressources';
 @Component({
     tag:'mod-affressource',
@@ -26,7 +26,7 @@ export class affressource {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/moder/afficheRessource/` + this.match.params.id, {
+            let response = await fetch(PATH.back+'/moder/afficheRessource/' + this.match.params.id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export class affressource {
             return (
                 <div>
                     <div class="container pb-3">
-                        <hive-pdf-viewer class="mx-auto pdf-frame " src={"http://localhost:3000/file/"+this.afficherRessources.fileName}></hive-pdf-viewer>
+                        <hive-pdf-viewer class="mx-auto pdf-frame " src={PATH.back+'/file/'+this.afficherRessources.fileName}></hive-pdf-viewer>
                     </div>
 
                     <div class="container bottom-page-ressource pb-2">

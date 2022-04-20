@@ -1,6 +1,7 @@
 import { Component, h, State,Prop } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
 import { Ressources } from '../../utils/Ressources';
+import {PATH} from '../../utils/path.js';
 
 @Component({
     tag:'mod-monespace',
@@ -32,7 +33,7 @@ export class ModMonespace {
         e.preventDefault()
         console.log(this.etatRE)
         try{
-            let response = await fetch(`http://localhost:3000/moder/moderationRessource`, {
+            let response = await fetch(PATH.back+'/moder/moderationRessource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ export class ModMonespace {
         e.preventDefault()
         console.log(this.etatRE)
         try{
-            let response = await fetch(`http://localhost:3000/moder/moderationRessource`, {
+            let response = await fetch(PATH.back+'/moder/moderationRessource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ export class ModMonespace {
 
     async supprimerComment(commentaireid) {
         try{
-            let response = await fetch(`http://localhost:3000/moder/moderationComment`, {
+            let response = await fetch(PATH.back+'/moder/moderationComment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +106,7 @@ export class ModMonespace {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/moder/afficheRessourceModer`, {
+            let response = await fetch(PATH.back+'/moder/afficheRessourceModer', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ export class ModMonespace {
 
     async affcomment(){
         try{
-            let response = await fetch(`http://localhost:3000/moder/afficheCommentaireSignale`, {
+            let response = await fetch(PATH.back+'/moder/afficheCommentaireSignale', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -145,7 +146,7 @@ export class ModMonespace {
 
     async affress(){
         try{
-            let response = await fetch(`http://localhost:3000/moder/afficheRessourceSignale`, {
+            let response = await fetch(PATH.back+'/moder/afficheRessourceSignale', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

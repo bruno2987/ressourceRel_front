@@ -1,6 +1,7 @@
 import { Component, h, Prop, State } from '@stencil/core';
 import { Ressources } from '../../utils/Ressources';
 import { RouterHistory } from '@stencil/router';
+import {PATH} from '../../utils/path.js';
 @Component({
     tag:'user-modifierressource',
     shadow: false,
@@ -31,7 +32,7 @@ export class userModifierRessource {
     async sendModif(e){
         e.preventDefault()
         try{
-            let response = await fetch(`http://localhost:3000/users/modifRessource`, {
+            let response = await fetch(PATH.back+'/users/modifRessource', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ export class userModifierRessource {
 
     async ressource(){
         try{
-            let response = await fetch(`http://localhost:3000/users/afficheOneRessourceUser/` + this.match.params.id, {
+            let response = await fetch(PATH.back+'/users/afficheOneRessourceUser/' + this.match.params.id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

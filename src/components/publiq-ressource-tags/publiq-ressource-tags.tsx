@@ -1,6 +1,7 @@
 import { Component, h, State,Prop } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
 import { Ressources } from '../../utils/Ressources';
+import {PATH} from '../../utils/path.js';
 
 @Component({
     tag: 'publiq-ressource-tags',
@@ -19,7 +20,7 @@ import { Ressources } from '../../utils/Ressources';
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/public/ressourceFiltreTags/` + this.match.params.tags, {
+            let response = await fetch(PATH.back+'/public/ressourceFiltreTags/' + this.match.params.tags, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

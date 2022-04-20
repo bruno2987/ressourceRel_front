@@ -1,6 +1,6 @@
 import { Component, h, State,Prop } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
-
+import {PATH} from '../../utils/path.js';
 import { Ressources } from '../../utils/Ressources';
 @Component({
     tag:'user-affressource',
@@ -26,7 +26,7 @@ export class affressource {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/users/afficheOneRessourceUser/` + this.match.params.id, {
+            let response = await fetch(PATH.back+'/users/afficheOneRessourceUser/' + this.match.params.id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export class affressource {
 
     async favorisRessource(idRessource){
         try{
-            let response = await fetch(`http://localhost:3000/users/favorisRessource/`, {
+            let response = await fetch(PATH.back+'/users/favorisRessource/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export class affressource {
         }
         async vueplus1(){
             try{
-                let response = await fetch(`http://localhost:3000/public/statressource`, {
+                let response = await fetch(PATH.back+'/public/statressource', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export class affressource {
         async signalerCommentaires(commentaireid){
             console.log(commentaireid)
             try{
-                let response = await fetch(`http://localhost:3000/users/signalerUnCommentaire`, {
+                let response = await fetch(PATH.back+'/users/signalerUnCommentaire', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ export class affressource {
             return (
                 <div>
                     <div class="container pb-3">
-                        <hive-pdf-viewer class="mx-auto pdf-frame " src={"http://localhost:3000/file/"+this.afficherRessources.fileName}></hive-pdf-viewer>
+                        <hive-pdf-viewer class="mx-auto pdf-frame " src={PATH.back+'/file/'+this.afficherRessources.fileName}></hive-pdf-viewer>
                     </div>
 
                     <div class="container bottom-page-ressource pb-2">

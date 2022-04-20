@@ -1,6 +1,6 @@
 import { Component, h, State, Prop } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
-
+import {PATH} from '../../utils/path.js';
 import { Ressources } from '../../utils/Ressources';
 
 @Component({
@@ -21,7 +21,7 @@ export class UserMonespace {
 
     async _getData(){
         try{
-            let response = await fetch(`http://localhost:3000/users/afficheRessourceUser`, {
+            let response = await fetch(PATH.back+'/users/afficheRessourceUser', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
