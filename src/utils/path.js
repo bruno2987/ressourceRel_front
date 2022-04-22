@@ -1,4 +1,4 @@
 export const PATH = {
-    back : 'http://localhost:3000',
+    back : 'https://ressourcesrel.alwaysdata.net',
     file: './assets/file/'
 }   
